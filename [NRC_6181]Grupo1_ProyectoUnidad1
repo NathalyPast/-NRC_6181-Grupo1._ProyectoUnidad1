@@ -1,0 +1,363 @@
+from ast import If, While
+from os import system
+from time import process_time_ns, strftime
+from traceback import print_tb
+
+
+class Estacionamiento:
+    def __init__(self,numPlaza,horaLL,minLL,horaSa,minSa):   # creacion de clases  
+        self.numPlaza=numPlaza
+        self.horall=horaLL    # parametros referentes a la clase estacionamiento 
+        self.minLL=minLL
+        self.horaSal=horaSa
+        self.minSa=minSa
+
+    
+class Cliente:    # creacion de la clase cliente 
+    def __init__(self,nombre,edad,cedula,numTelefono):   # parametros referentes a la clase cliente 
+        self.nombre=nombre  
+        self.edad=edad
+        self.cedula=cedula     #
+        self.numTelefono=numTelefono
+
+class Vehiculo:   # creacion  de clase vehiculo 
+    def __init__(self,numMatricula,colorCoche,marca):  # parametros de la clase vehiculo 
+        self.numMatricula=numMatricula
+        self.colorCoche=colorCoche
+        self.marca=marca
+
+class Feriado :
+    def __init__(self,fecha):
+        self.fecha=fecha
+        
+       
+# informacion en referencia al programa 
+
+print("                                                    I N F O R M A C I O N ")
+print("            ---------------------------------------------------------------------------------------------------------------")
+print("            A continuacion mostraremos un programa basado en las puestos de zonas azules presentes para pdoer beneficiar a ")
+print("            la comunidad en especial a las personas que buscan poder dejar sus vehiculos en una parte mas segura  ")
+print("            ---------------------------------------------------------------------------------------------------------------")
+print("")
+system("pause")
+print("")
+print("                              QUIERE VER EL PROGRAMA Y DAR INICIO DEL PROGRAMA DEL PROYECTO BASADO AL TEMA EN REFERENCIA")
+i=0
+print("")
+while i==0:  # condicion del while para verificar el ingreso de la respuesta
+  print("")
+  op=str(input("                         >   INGRESE SI/NO   ( EN CASO DE (NO) SE CERRARA EL PROGRAMA )  -> "))
+  print("                   ")  # ingreso de dtao requerido ( si / no )
+  if op=="si":
+      print("____________________________________________________________________________________/ M E N U   P R I N C I P A L")
+      print("")
+      print("                                         B I E N V E N I D O S   A L  P R O G R A M A         ")
+      print("                                                             ___")
+      print("                                                              | ")
+      print("                                                              | ")
+      print("                                                              | ")
+      print("                                                              | ")
+      u=0
+      while u==0: # while para la repeticion del menu 
+         print("                           ====================  ( P A R Q U E A D E R O )  ==========================")
+         print("")
+         print("                                               MENU DE INICIO PARQUEADERO        ")
+         print("                           [1] -> INGRESO DE VEHICULO AL PARQUEADERO ")  # opciones del menu 
+         print("                           [2] -> INGRESO A INFORMACION SOBRE PARQUEADERO")
+         print("                           [3] -> SALIR DEL PARQUEADERO ")
+         print("")
+         print("                           ===========================================================================")
+         print
+         j=0
+         while j==0:    # while para la validación del la respuesta 
+             op1=int(input("                           INGRESE OPCION ->"))
+             if op1==1: # condicional  if 
+                 j=1
+                 print("")
+                 k=0
+                 x=0
+                 ñ=0   # inicialización de las variables de acuerdo los while
+                 q=0
+                 total=0
+                 while k==0:
+                     print("")
+                     print("_________________________________________________________________________________/  M E N U   P A R K I N G    ")
+                     print("")
+                     print("                        > I N F O R M A C I O N   M E N U   P R I N C I P A L   ")
+                     print("                                                ___")
+                     print("                                                 | ")
+                     print("                                                 | ")  # menu secundario en referencia de las zonas azules 
+                     print("                                                 | ")
+                     print("                    -----------------------------------------------------------------")
+                     print("                    T I E N E   Q U E  L L E N A R   T O D A  L A S  O P C I O N ES   ")
+                     print("                    -----------------------------------------------------------------")
+                     print("                    [1] >   VEHICULO  ")
+                     print("                    [2] >   CLIENTE  ")
+                     print("                    [3] >   ESTACIONAMIENTO  ")   # OPCIONES 
+                     print("                    [4] >   DAR CONTINUACION AL PROGRAMA ")
+                     print("                    [5] >   VOLVER AL OTRO MENU")
+                     print("                    ---------------------------------------------------------------- ")
+                     g=0
+                     while g==0:   # validación de la respuesta correcta 
+                         op2=int(input("                    INGRESE OPCION -> "))
+                         if op2>5 or op2<1:  # condición para validar la respuesta 
+                              print("                    ---------->")
+                              print("                    PORFAVOR INGRESE VALORES CORRECTOS !!    ")
+                         else:
+                              g=1 # incremento de acuerdo while
+                              if op2==1:     # condicion de las opciones 
+                                 x+=1
+                                 if x==1:
+                                     total+=1   # ingreso de datos 
+                                     print("")
+                                     print("                     ==========================================")
+                                     print("                     I N F O R M A C I O N      V E H I C U L O ")
+                                     print("")
+                                     numMatricula=str(input("                  1.   INGRESE NUMERO DE MATRICULA DEL VEHICULO  ->"))
+                                     print("")
+                                     colVehiculo=str(input("                  2.   INGRESE COLOR DEL VEHICULO ->"))
+                                     print("")
+                                     marVehiculo=str(input("                  3.   INGRESE MODELO DEL VEHICULO -> "))
+                                     veh=Vehiculo(numMatricula,colVehiculo,marVehiculo)
+                                     print()
+                                     system("pause")
+
+                                 else:   # negacion del ingreso de datos 
+                                       print("                     ---------->")
+                                       print("                     USTED YA INGRESO LOS DATOS OCRRESPONDIENTES !")
+                                       print()
+                                       system("pause")
+                              else:
+                                  if op2==2:
+                                     ñ+=1
+                                     if ñ==1:   # ingreso de datos 
+                                         total+=1
+                                         print("")
+                                         print("                     ==========================================")
+                                         print("                     I N F O R M A C I O N      C L I E N T E ")
+                                         print()
+                                         nom=str(input("                  1.  INGRESE NOMBRE ->"))
+                                         print("")
+                                         edad=int(input("                  2.  INGRESE EDAD ->"))
+                                         print("")
+                                         cedula=int(input("                  3.  INGRESE NUMERO DE CEDULA ->"))
+                                         print("")
+                                         numeroTe=int(input("                  4.  INGRESE NUMERO DE TELEFONO"))
+                                         print("")
+                                         cli=Cliente(nom,edad,cedula,numeroTe)  # instanciamos la clase cliente con sus parametros
+                                         print("")
+                                         system("pause")
+
+                                     else:  # negacion de la condición 
+                                         print("                     ---------->")
+                                         print("                     USTED YA INGRESO LOS DATOS OCRRESPONDIENTES !")
+                                         print()
+                                         system("pause")
+                                  else:   
+                                     if op2==3:   # condicion opcion 3 
+                                         q+=1
+                                         if q==1:
+                                             total+=1     # condicion verisicacion de ingreso a las 3 opciones anteriores
+                                             print("")
+                                             print("                     =======================================================")
+                                             print("                     I N F O R M A C I O N      ES T A C I O N A M I E N T O ")
+                                             print()
+                                             print("")
+                                             print("                    -> LA HORA DE SERVICIO DE ESTACIONAMIENTO ES DE 1 HASTA LAS 6 DE LA TARDE")
+                                             print("                       ----------------------------------------------------------------------")
+
+                                             print("")    # ingreso de datos en referencia  del estacionamiento 
+                                             numPlaza=int(input("                   1. INGRESE NUMERO DE PLAZA ->"))
+                                             print("")
+                                             print("                             D I A S    F E R I A D O S     ( 15-20 )  ")
+                                             print("                             -----------------------------------------")
+                                             print("")
+                                             dia=int(input("                        2. INGRESE DIA DEL MES -> "))
+                                             print("")
+                                             y=0
+                                             if(dia>=15 and dia<=20):   # condicion de ingreso de dias en referencia a los doias feriados 
+                                                 y=1
+                                             print("                      T I E M P O   D E   L L E G A D A ")
+                                             print("                      ---------------------------------")
+                                             print("")
+                                             c=0
+                                             j=0
+                                             while c==0:
+                                                   print("")
+                                                   horaLL=int(input("                   3. INGRESE HORA DE LLEGADA ->"))
+                                                   if horaLL<1 or horaLL>6:
+                                                     print("")   # condiciones para el ingreso de hora de llegada
+                                                     print("                               -> INGRESE PORFAVOR EL HORARIO DENTRO DE LO ESTABLECIDO  (1-6)")
+                                                   else:
+                                                     c=1   
+                                                     if horaLL==6:
+                                                         print("                           ->    ES LA HORA LIMITE")
+                                                     else:
+                                                          print("")
+                                                          while j==0:   # condicion para el ingreso de minutos correspondientes
+                                                                 print("")
+                                                                 minLL=int(input("                   4. INGRESE MINUTO DE LLEGADA ->"))
+                                                                 if minLL>=1 and minLL<60:
+                                                                      j=1
+                                                                 else:
+                                                                     print("")
+                                                                     print("                               -> INGRESE MINUTOS CORRECTOS (0-60)")
+                                             print("")
+                                             print("                   [ HORA INGRESO ->  ",horaLL,":",minLL," ]")  # presentaciones de ingreso de hora de llegada
+                                             print("")
+                                             system("pause")
+                                             print("")
+                                             print("                      T I E M P O   D E   S A L I D A ")
+                                             print("                      ---------------------------------")
+                                             print("")
+                                             i=0                            # ingreso de horario de salido 
+                                             while i==0:
+                                                 print("")
+                                                 horaSa=int(input("                   5. INGRESE HORA DE SALIDA ->"))
+                                                 if horaSa>=horaLL and horaSa<=6:  # condicion de hora de 1 a 6 rango de verificacion 
+                                                     i=1   
+                                                     if horaSa==6:
+                                                          print("                    ->  HORA LIMITE DEL HORARIO (1-6)")
+                                                     else:
+                                                          j=0
+                                                          while j==0:
+                                                                 print("")          # condición  ingreso de minutos 
+                                                                 b=0
+                                                                 minSa=int(input("                   6. INGRESE MINUTO DE LLEGADA ->"))
+                                                                 es=Estacionamiento(numPlaza,horaLL,minLL,horaSa,minSa)   # instanciamos la clase estacionamiento con sus parametros 
+                                                                 if minLL>=1 and minLL<60:
+                                                                     if horaLL==horaSa:
+                                                                          b=1
+                                                                          if minSa>minLL:
+                                                                             j=1
+                                                                          else:
+                                                                              if minLL==minSa:
+                                                                                 print("") # condicion de minutos iguales 
+                                                                                 print("                  -> INGRESE MINUTO MAYOR QUE AL DE LLEGADA ")
+                                                                              else:
+                                                                                  print("")
+                                                                                  print("                    -> LOS MINUTOS DE SALIDA DEBEN SER MAYOR QUE LOS DE LLEGADA")
+                                                                     else:
+                                                                         j=1
+                                                                 else:
+                                                                     print("")
+                                                                     print("                               -> INGRESE MINUTOS CORRECTOS (0-60)")
+                                                 else:
+                                                     if horaSa<horaLL:  # condicion de hora salida y llegada 
+                                                         print("")
+                                                         print("                     -> LA HORA DE SALIDA NO DEBE SER MENOR QUE LA DE LLEGADA !")
+                                                     else:
+                                                          if horaSa>6:
+                                                             print("")
+                                                             print("                               -> INGRESE PORFAVOR EL HORARIO DENTRO DE LO ESTABLECIDO  (1-6)")
+                                                  
+                                               
+                                             
+                                             print("")
+                                             print("                   [ HORA SALIDA ->  ",horaSa,":",minSa," ]")    # concatenamos el ingreso al horario de salido 
+                                             print("")
+                                             system("pause")
+                                         else:
+                                             print("                     ---------->")
+                                             print("                     USTED YA INGRESO LOS DATOS OCRRESPONDIENTES !")
+                                             print()
+                                             system("pause")
+
+                                     else: 
+                                          if op2==4:
+                                                 if total==3:
+                                                     print("                   ---------->")
+                                                     print("                   DAREMOS INGRESO  A CONTINUACION DE LA FACTURACIÓN DEL PUESTO DE PARKING")
+                                                     print("")
+                                                     print("                   F A C T U R A C I O N         M I N U T O / 0.2 $")    # facturacion de parqueadero 
+                                                     print("                   ================================================= ")
+                                    
+                                                     if b==1:
+                                                         if y==1:
+                                                              print("")
+                                                              print("                       CORRESPONDE A DIAS FERIADOS POR LO QUE SE HARA UN DESCUENTO ( 0.1/min )")
+                                                         totalMi=minSa-minLL
+                                                         print("")
+                                                         print("                          I N F O R M A C I O N   C L I E N T E   [F A C T U R A]  ")
+                                                         print("                   -----------------------------------------------------------------------------")
+                                                         print("                      NOMBRE : ",cli.nombre," <-->   EDAD : ",cli.edad," NUMERO DE PLAZA",es.numPlaza)
+                                                         print("                      NUMERO DE CEDULA : ",cli.cedula," NUMERO DE TELEFONO : ",cli.numTelefono)
+                                                         if y==1:                  # CONCATENACIÓN DE DATOS EN REFERENCIA A LO INGRESADO 
+                                                              print("                      VALOR A PAGAR : ",(totalMi*0.1),"  GRACIAS POR SU AMABILIDAD")
+                                                         else:
+                                                              print("                      VALOR A PAGAR : ",(totalMi*0.2),"  GRACIAS POR SU AMABILIDAD")  
+                                                         print("                   -----------------------------------------------------------------------------")
+                                                         print("")
+                                                         system("pause")
+                                                     else:
+                                                          totalHora=es.horaSal-es.horall
+                                                          totalMinu=totalHora*60
+                                                          totalMi=es.minSa-es.minLL
+                                                          minutos=totalMinu+totalMi
+                                                          print("")
+                                                          print("                          I N F O R M A C I O N   C L I E N T E   [F A C T U R A]  ")
+                                                          print("                   -----------------------------------------------------------------------------")
+                                                          print("                      NOMBRE : ",cli.nombre," <-->   EDAD : ",cli.edad," NUMERO DE PLAZA",es.numPlaza)
+                                                          print("                      NUMERO DE CEDULA : ",cli.cedula," NUMERO DE TELEFONO : ",cli.numTelefono)
+                                                          print("                      VALOR A PAGAR : ",(minutos*0.2),"  GRACIAS POR SU AMABILIDAD")
+                                                          print("                   -----------------------------------------------------------------------------")
+                                                          system("pause")
+                                                 else:
+                                                     print("")
+                                                     print("                      ---------------->")
+                                                     print("                      PORFAVOR TIENE QUE COMPLETAR LAS SECCIONES CON LA INFORMACION REQUERDIA")
+                                                     system("pause")
+
+                                          else:
+                                              if op2==5:
+                                                  k=1
+                                                  print("")
+                                                  print("                   -------------->")  
+                                                  print("                   AH DECIDIDO VOLVER EN EL OTRO MENU ")
+                                                  system("pause")
+                                                 
+                                                      
+
+
+
+
+                                        
+
+
+
+
+
+             else:
+                 if op1==2:
+                     print("")
+                     print("                       > V A L O R  ( MINUTO )   F A C T U R A C I O N  ")
+                     print("                        =============================================")
+                     print("                        MINTO / 0.2")
+                     print("                                ")
+                     j=1
+                     print("")
+                 else:
+                     if op1==3:
+                         j=1
+                         print("                           ---------->")
+                         print("                           GRACIAS POR HABER ENTRADO AL SISTEMA DE PARQUEADERO ")
+                         u=1
+                     else:
+                          print("                           ---------->")
+                          print("                           PORFAVOR INGRESE UN OPCION QUE SEA CORRECTA ! ")
+
+                     
+                  
+
+             print("")
+  else:
+      if op=="no":
+          i=1
+          print("                         ________( SE CERRARA EL PROGRAMA , MUCHAS GRACIAS POR SU ATENCION  )_______ ")
+      else:
+          print("                           ________(  PORFAVOR INGRESE LA RESPUESTA DE MANERA CORRECTA )_________")
+          print("")
+
+
+
+ 
